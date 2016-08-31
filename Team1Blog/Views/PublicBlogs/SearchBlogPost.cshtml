@@ -1,0 +1,77 @@
+﻿
+@model Team1Blog.Models.BlogPost
+
+
+<div class="container">
+         
+    <div class="row">
+        <div class="col-md-4 col-lg-offset-2">
+            
+            <div class="panel-heading">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">blogs Found :@Model.Blogs.Count</h4>
+                    </div>
+                </div>
+            </div>
+        
+
+                @if (Model.Blogs.Count > 0)
+                {
+                    foreach (var blog in Model.Blogs)
+                    {
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    Blog Titel
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <a style="min-width:300px" class="btn btn-primary" href="/publicBlogs/PostIndex/@blog.Id"><h4>@blog.Titel</h4></a>
+                            </div>
+                            <div class="panel-footer">
+                                <h6>Created On: @blog.Created.Value.ToShortDateString()</h6>
+                                <h6 class="label label-default">Author : @blog.Author.UserName</h6>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        <div class="col-md-4">
+            <div class="panel-heading">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Posts Found:@Model.Posts.Count</h4>
+                    </div>
+                </div>
+                
+            </div>
+            @if (Model.Posts.Count > 0)
+            {
+                foreach (var post in Model.Posts)
+                {
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Post Titel:@post.Titel
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <a href="/publicBlogs/readpost/@post.Id" style="width:300px" class="btn btn-danger"><h4>@post.Titel</h4></a>
+                        </div>
+                        <div class="panel-footer">
+                            <h6>Created On: @post.Created.Value.ToShortDateString()</h6>
+                            <h6 class="label label-default"> Authore :@post.Blog.Author.UserName</h6>
+                        </div>
+                    </div>
+
+                }
+            }
+           
+            
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

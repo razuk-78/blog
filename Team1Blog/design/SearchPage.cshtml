@@ -1,0 +1,78 @@
+﻿@model Team1Blog.Models.Blog
+
+@{
+    ViewBag.Title = "Browse by view";
+}
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel panel-heading">
+                        <p>3 Blogs and 5 posts found matching (searchterm)</p>
+                    </div>
+                    
+                    
+                    <div class="panel panel-body">
+                        <div class="col-md-8">
+                            <p>Blog Title</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div>Date by author</div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-body">
+                        <div class="col-md-8">
+                            <p>Blog Title</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div>Date by author</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel panel-heading">
+                            <p>3 Blogs and 5 posts found matching (searchterm)</p>
+                        </div>
+
+                        @*Repeat here*@
+                        <div class="panel panel-body">
+                            <div class="col-md-8">
+                                <p>Blog Title</p>
+                            </div>
+                            <div class="col-md-4">
+                                <div>Blog name</div>
+                                <div>Date by author</div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-body">
+                            <div class="col-md-8">
+                                <p>Blog Title</p>
+                            </div>
+                            <div class="col-md-4">
+                                <div>Blog name</div>
+                                <div>Date by author</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

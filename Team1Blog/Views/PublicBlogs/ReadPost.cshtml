@@ -1,0 +1,159 @@
+﻿
+@using Team1Blog.Models
+@model Team1Blog.Models.PostDetail
+
+@{
+  
+    string s = (!User.Identity.IsAuthenticated) ? "you need to bo sign in to add comment" : "write your comment";
+
+}
+
+<div class="container" style="margin-top:10px" >
+   
+    <div class="row">
+        <div class="col-md-4">
+          
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Comments(@Model.post.comments.Count)
+                    </h3>
+                </div>
+                @{
+                foreach (var Comment in Model.Comments)
+                {
+
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                
+                                  
+                                
+                                        <h5 >
+                                        Author : @Comment.Author.UserName
+                                        </h5>
+                                   
+                                    
+                                    
+                                  
+                                            
+                                        
+                            </div>
+                            <div class="panel-body" style="overflow-wrap:break-word">
+                                @Comment.body
+
+                            </div>
+                            <div class="panel-footer">
+                             <h5>Added on : @Comment.Created.Value.ToShortDateString()</h5> 
+                            </div>
+                           
+                        </div>
+                    </div>
+
+                }
+
+}
+
+                <div class="panel-footer">
+                   
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="col-md-8">
+            <div class="row well" >
+                <h3 class="panel-title">
+                    Blog : @Model.Blog.Titel
+                </h3>
+                <h4 class="">@Model.post.Titel</h4>
+                 <br />
+                <div class="col-md-8" style="overflow-wrap:break-word">
+                    @Model.post.Body
+                    <br />
+                    <h5 >Author(@Model.PostAuthor.UserName)</h5>
+                    <h4 >Created Date(@Model.post.Created) </h4>
+                    <a style=""  id="modal-626397" href="#modal-container-626397" role="button" class="btn" data-toggle="modal">Add Comment</a>
+                 
+                </div>
+                <div class="col-md-4">
+                    <img style="width:200px;height:auto;" src="@Model.post.image" />
+                    <br />
+                    <br />
+                    <h4 class="label label-success" style="font-size:15px">Views(@Model.post.Views)</h4>
+                    <br />
+                    <br />
+                    Tags:
+                    <p>
+
+                       
+                        @{
+                            foreach (var tag in Model.post.Tags.ToList())
+                            {
+                                <a style="margin:1px" class="btn btn-danger" href="/PublicBlogs/BrowseTagPage/?Tagname=@tag.Name">@tag.Name</a>
+
+                            }
+
+                        }
+                    </p>
+                </div>
+                </div>
+               <br />
+              
+            </div>
+           
+  </div>
+    </div>
+
+
+
+
+
+<div class="modal fade" id="modal-container-626397" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="comment">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                   Add Comment
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form role="form" action="/PublicBlogs/addcomment">
+                                <div class="form-group">
+
+                                    
+                                    <input type="hidden" value="@Model.post.Id" name="id" />
+
+                                    <textarea placeholder="@s"  class="form-control" name="Comment" ng-model="text" ng-change="addChar()" required></textarea>
+
+                                    <h4 ng-show="limit" class="text-danger">{{msg}}</h4>
+
+                                </div>
+
+
+
+                                <button type="submit" class="btn btn-default">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                ...
+            </div>
+            <div class="modal-footer">
+
+                ({{text.length}}/512)
+            </div>
+        </div>
+
+    </div>
+
+</div>

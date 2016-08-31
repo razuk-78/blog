@@ -1,0 +1,61 @@
+﻿@using Team1Blog.Models
+@model BlogTag
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+
+            <button type="button" class="btn btn-default pull-right" ng-click="tags=1;blogs=0">
+                <h3 class="panel-title">SearchByTags</h3>
+            </button>
+        </div>
+        <div class="col-md-4">
+
+            <button type="button" class="btn btn-default pull-left" ng-click="tags=0;blogs=1">
+                <h3 class="panel-title">SearchByBlogs</h3>
+            </button>
+        </div>
+        <div class="col-md-8">
+        </div>
+    </div>
+    <br />
+    <div class="container" ng-init="tags=0;blogs=0">
+
+        <div class="row well" ng-show="tags==1">
+            <div class="col-md-12">
+                @foreach (var item in Model.TagNameViews.OrderByDescending(x => x.Value))
+                {
+                    @*<a style="margin-top:8px;" class="btn btn-success" href="/publicblogs/SearchBlogTagView/?tagname=@item.Key"><h3>@item.Key (@item.Value Views)</h3></a>*@
+                    <a style="margin-top:8px;min-width:200px;min-height:75px" class="btn btn-success" href="/publicblogs/BrowseTagPage/?TagName=@item.Key"><h3>@item.Key (@item.Value Views)</h3></a>
+                }
+
+            </div>
+        </div>
+
+        @foreach (var item in Model.BlogFilter.OrderByDescending(x => x.Value))
+        {
+            <div class="row well" ng-show="blogs==1">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-7">
+                    <a style="width:400px;height:75px" class="btn btn-danger" href="/publicblogs/FilterPostsByDate/?id=@item.Key.Id&year=@item.Key.Created.Value.Year&month=@item.Key.Created.Value.Month"><h2>@item.Key.Titel Views(@item.Value)</h2> </a>
+                </div>
+                <div class="col-md-4">
+                    <h4>Author:@item.Key.Author.FirstName</h4>
+                    <h4>
+                        Created On:@item.Key.Created.Value
+                    </h4>
+                </div>
+            </div>
+
+        }
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+            @{List<Post> posts = ViewBag.posts;}
+            @Html.Partial("Carousel", posts)
+        </div>
+
+    </div>
+</div>

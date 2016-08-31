@@ -1,0 +1,69 @@
+﻿@model IEnumerable< Team1Blog.Models.Post>
+
+@{
+    ViewBag.Title = "Browse Tag Page";
+    List<string> tagsname = new List<string>();
+}
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href="/publicblogs/SearchBlogTagView" class="btn btn-default navbar-btn">Back to Browse</a>
+                        <div>
+                            <span style="font-size:10px;">Tags >></span>
+                            @foreach (var post in Model)
+                            {
+                                foreach (var tag in post.Tags)
+                                {
+                                    if (!tagsname.Contains(tag.Name))
+                                    {
+                                        tagsname.Add(tag.Name);
+                                        <label class="label label-default">@tag.Name</label>
+                                    }
+
+                                }
+                            }
+                        </div>
+                    </div>
+                  
+                        <div class="modal-body ">
+                            @foreach (var post in Model)
+                            {
+
+                            @*<h3>Posts containing tag (tag)</h3>*@
+                            @* Repeat here*@
+
+                            <div class="row MainBrowsTagPage">
+                                <div class="col-md-3">
+
+                                    <a class="btn btn-default " style="font-size:20px;width:150px;height:50px" href="/publicBlogs/readpost/@post.Id">@post.Titel</a>
+
+                                </div>
+                                <div class="col-md-offset-5 col-md-4">
+                                    <div>
+                                        <h4>Date:@post.Created.Value.ToShortDateString()</h4>
+                                        <h4>Author:@post.Blog.Author.FirstName</h4>
+                                    </div>
+                                    <div>Blog Name :@post.Blog.Titel</div>
+                                </div>
+                            </div>
+
+
+
+
+                            }
+                        </div>
+                
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+

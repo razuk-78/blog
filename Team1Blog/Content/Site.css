@@ -1,0 +1,231 @@
+﻿
+.modal-content h4
+{
+  color: blanchedalmond;
+}
+
+h3 {
+    color: blanchedalmond;
+}
+
+.control-label {
+    font-weight: 300;
+    color: blanchedalmond
+}
+
+.navbar
+{
+
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.navbar-brand
+{
+    width: 50px;
+    padding: 25px 30px 25px 50px;
+    background-image:url(Images/team1_logo.jpg);
+    background-size: 50px 30px;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+.authNav button
+{
+    background-color: grey;
+    border-color: grey;
+    color: blanchedalmond;
+    margin-left: 30px;
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.bodyMain
+{
+
+    background-color: #003377;
+    /*background-image: url(Images/Forest.jpg);
+    background-repeat: no-repeat;
+    background-size: 1900px auto;*/
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.jumbotron{
+    background-image: url(/Content/Images/dark-blue-abstract.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    
+    color: blanchedalmond;
+    opacity: 0.8;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+.jumbotron img {
+    width:auto; 
+    height:auto;
+    margin:auto;
+    display:block;
+}
+
+.mainSubTopic{
+     margin: 10px;
+     /*background-color: #669999;*/
+     color: #fff;
+     background-image: url(/Content/Images/dark-blue-abstract.jpg);
+     padding: 10px;
+    
+     opacity: 0.8;
+     filter: alpha(opacity=40); /* For IE8 and earlier */
+     border-radius: 5px;
+}
+
+    .mainSubTopic h3 {
+    padding-left: 20px; 
+}
+
+.mainSubTopic ul{
+    margin: 10px;
+    color: blanchedalmond;
+}
+
+.mainSubTopic a {
+    margin: 10px;
+    color: blanchedalmond;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+
+.title {
+    width: 200px;
+    max-width: 200px;
+}
+
+.description {
+    height: 50px;
+    width: 400px;
+    max-height: 50px;
+    max-width: 400px;
+}
+
+.mainSearch {
+    margin-top: 10px;
+}
+
+.icon-zoom-in
+{
+  position:relative;
+  left:23px;
+  top:-8px;
+  z-index:999;
+}
+.input-append input
+{
+  height:30px;
+  padding-left:25px;
+}
+
+.blogList h3 {
+    color: black;
+}
+.postList p img{
+    float: right;
+}
+
+.label-blog p {
+    padding: 5px 3px 4px 15px;
+    background-color: #f3dddd;
+    border-radius: 20px;
+}
+
+.control-label p {
+    color: blanchedalmond;
+}
+
+.BrowsTag
+{
+    margin: 5px;
+    background-image: url(/Content/Images/dark-blue-abstract.jpg);
+    
+    display: inline-block;
+}
+
+.BrowsTag div
+{
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+    background-color: #f3dddd;
+    border-radius: 5px;
+}
+
+.BrowsView
+{
+    margin: 5px;
+    padding: 5px;
+    background-color: #f3dddd;
+    border-radius: 5px;
+}
+
+.BrowsTagPage
+{ 
+    margin: 5px;
+    padding: 5px;
+    background-color: #f3dddd;
+    border-radius: 5px;
+}
+.MainBrowsTagPage {
+    border-radius:10px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #0c274a;
+}
+.BrowsTagPage div p
+{
+    text-align: center;
+    font-size: large;
+}
+
+.modal-header, .modal-footer{
+    
+    background-color: #0a0916;
+    color: blanchedalmond;
+}
+
+.modal-content {
+    background-image: url(/Content/Images/dark-blue-abstract.jpg);
+    color: blanchedalmond;
+}
+
+footer {
+    background-image: url(/Content/Images/dark-blue-abstract.jpg);
+    /*background-color: #407F7F;*/
+    color: blanchedalmond;
+}
+
+.panel-title {
+    /*font-size: 2em;*/
+    font-style: italic;
+    color: black;
+}

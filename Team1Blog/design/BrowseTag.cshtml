@@ -1,0 +1,54 @@
+﻿@model Team1Blog.Models.Blog
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn btn-default navbar-btn">Browse Blogs by Views</button>
+                        <button type="button" class="btn btn-default navbar-btn">Browse Posts by Tags</button>
+
+                    </div>
+                    <div class="modal-body BrowsTag">
+
+                        @* Repeat here*@
+                        <div>
+                            Tag1 (345 views)
+                        </div>
+                        <div>
+                            Tagger (345 views)
+                        </div>
+                        <div>
+                            Tagging (345 views)
+                        </div>
+                        <div>
+                            Another tag (345 views)
+                        </div>
+                        <div>
+                            Tag again (345 views)
+                        </div>
+                        <div>
+                            Tag1 (345 views)
+                        </div>
+                        <div>
+                            Tag1 (345 views)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

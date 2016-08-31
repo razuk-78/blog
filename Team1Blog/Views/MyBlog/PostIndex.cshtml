@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Team1Blog.Models.Post>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            
+        </div>
+        <div class="col-md-7">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Create New post"></span>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@item.Titel</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        @if (true)
+                        {
+                            <div class="col-md-6">
+                                <p style="overflow-wrap:break-word">@item.Body</p>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="@item.image" alt="Bootstrap Image Preview">
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-12">
+                                <p>@item.Body</p>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-3 label-blog"><p>Created: @item.Created</p></div>
+                        @*<div class="col-md-3 label-blog"><p>Last Updated: </p></div>*@
+                        <div class="col-md-3 label-blog">
+                            @{
+            foreach (var tag in item.Tags)
+            {
+                <span class="label label-primary">@tag.Name</span>
+            }
+                            }
+                        </div>
+                        <div class="col-md-offset-4 col-md-2  label-blog"><a href="/myblog/PostEdit/@item.Id"><span class="glyphicon glyphicon-pencil " title="Edite Post"></span></a>
+                            <a href="/myblog/deletepost/@item.Id"><span title="Delete Post" class="glyphicon glyphicon-trash"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+ 
+        }
+
+    </div>
+</div> 
+
+
+
+
+

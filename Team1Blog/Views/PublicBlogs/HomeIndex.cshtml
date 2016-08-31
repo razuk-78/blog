@@ -1,0 +1,68 @@
+﻿@model Team1Blog.Models.HomeIndex
+<div class="container">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <h1>Team 1 Blog</h1>
+                <div class="col-md-6">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <p class="lead">Welcome @User.Identity.Name</p>
+                    }
+                    else
+                    {
+                        <p class="lead">Join today and read about everything that is important</p>
+                        <p><a href="/account/register" class="btn btn-primary btn-link">Sign up here &raquo;</a></p>
+                    }
+                    
+                </div>
+                <div class="col-md-6">
+                    <img src="~/Content/Images/team1_logo.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-md-4">
+            <div class="mainSubTopic">
+                <h3>Latest Blogs</h3>
+                <p>
+                    <ul>
+                        @foreach(var blog in Model.LatestBlogs)
+                        {
+                            <li><a href="/publicblogs/postindex/@blog.Id">@blog.Titel&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4cff00">@blog.Created.Value.ToShortDateString()</span> </a>   </li>
+                        }
+                    </ul>
+                </p>
+                @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Browse for more &raquo;</a></p>*@
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mainSubTopic">
+                <h3>Latest Posts</h3>
+                <ul>
+                    @foreach (var post in Model.LatestPosts)
+                    {
+                        <li><a href="/publicblogs/readpost/@post.Id">@post.Titel&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4cff00">@post.Created.Value.ToShortDateString()</span> </a>    </li>
+                    }
+                </ul>
+                @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Browse more &raquo;</a></p>*@
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mainSubTopic">
+                <h3>Most read Posts</h3>
+                <ul>
+                    @foreach (var post in Model.MostreadPosts)
+                    {
+                        <li><a href="/publicblogs/readpost/@post.Id">@post.Titel &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4cff00">Views(@post.Views)</span></a></li>
+                    }
+                </ul>
+
+                @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Browse more &raquo;</a></p>*@
+            </div>
+        </div>
+    </div>
+</div>
+

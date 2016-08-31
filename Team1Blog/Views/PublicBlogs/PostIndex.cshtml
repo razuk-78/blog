@@ -1,0 +1,76 @@
+﻿@model Team1Blog.Models.BlogDetail
+@{
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8">
+                @{
+
+                    foreach (var post in Model.Blog.Posts)
+                    {
+                        <div class="row">
+
+
+                            <div class="col-md-12 well">
+
+                                <div class="row">
+                                    <div class="col-md-8 ">
+                                        <h3 class="panel-title">
+                                            Blog Titel :  @Model.Blog.Titel
+                                        </h3>
+                                        <h4>
+                                            @post.Titel
+                                        </h4>
+                                        <p style="overflow-wrap:break-word">
+
+                                            @post.Body
+                                        </p>
+                                        <p>
+                                            <a class="btn btn-primary btn-large" href="/publicBlogs/readPost/@post.Id">Read More</a>
+                                        </p>
+
+                                        <h4>
+                                            Author( @Model.AuthorName)
+                                        </h4>
+                                        <h4>CreatedDate(@post.Created)</h4>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img style="width:200px;height:auto" src="@post.image" />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    } 
+                }
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Sorted Posts By Date:
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        @foreach (var item in Model.BlogDate)
+                        {<h5>
+                            year:  @item.year
+                        </h5>
+                            foreach (var itema in item.MonthsPostCounts)
+                            {
+                                <a class="btn btn-danger" href="/publicblogs/FilterPostsByDate/?id=@Model.Blog.Id&year=@item.year&month=@DateTime.Parse("2000-" + @itema.Key + "-02").Month"><h5>@itema.Key (@itema.Value)</h5></a>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+

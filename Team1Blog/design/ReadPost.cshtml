@@ -1,0 +1,174 @@
+﻿
+@using Team1Blog.Models
+@model Team1Blog.Models.Post
+
+@{
+    Blog blog = ViewBag.Blog;
+    List<Comment> comments = ViewBag.CommentList;
+   ApplicationDbContext db = new ApplicationDbContext();
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <h3>
+               Autore name : @ViewBag.AuthorName 
+            </h3>
+            <h5>
+                Created time << @Model.Created  >>
+            </h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        @{
+                            List<Team1Blog.Models.Post> posts = ViewBag.PostList;
+                            foreach (var item in posts)
+                            {
+                                <a href="/myblog/readpost/@item.Id">@item.Titel</a>
+                            }
+                        }
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    Link content
+                </div>
+                <div class="panel-footer">
+                    Panel footer
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        comment containar
+                    </h3>
+                </div>
+                @{foreach(var item in comments){
+                 
+                  <div class="panel-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                comment Athor Name :@db.Users.Find(item.AuthorId).UserName
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            @item.body
+                            
+                        </div>
+                        <div class="panel-footer">
+                            cooment footer
+                        </div>
+                    </div>
+                </div>
+                  }
+                    
+                  }
+                
+                <div class="panel-footer">
+                    Panel footer
+                </div>
+            </div>
+           
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        blog detail
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    post containt
+                </div>
+                <div class="panel-footer">
+                    update time
+                </div>
+            </div>
+            <h3>
+                Blog Titel
+            </h3>
+            <h3>
+                h3. Lorem ipsum dolor sit amet.
+            </h3><img alt="Bootstrap Image Preview" src="@Model.image" />
+            <h2>
+                @Model.Titel
+            </h2>
+            <p>
+               @Model.Blog
+            </p>
+            <p>
+                <a class="btn" href="#">View details »</a>
+            </p>
+            <a id="modal-626397" href="#modal-container-626397" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+
+            <div class="modal fade" id="modal-container-626397" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                Modal title
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <form role="form" action="/myblog/addcomment">
+                <div class="form-group">
+
+                    <label for="exampleInputEmail1">
+                        Add Comment
+                    </label>
+                    <input type="hidden"value="@Model.Id" name="id"/>
+
+                    <textarea class="form-control" name="body"></textarea>
+                </div>
+              
+                
+               
+                <button type="submit" class="btn btn-default" >
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+                            ...
+ </div>
+      <div class="modal-footer">
+
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@{
+    foreach (var item in Model.Tags)
+    {
+      <label class="label label-danger" >@item.Name</label>  
+    
+    }
+    db.Dispose();
+}

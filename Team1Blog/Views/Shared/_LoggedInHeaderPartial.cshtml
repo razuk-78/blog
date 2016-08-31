@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("My blogs", "Index", "UserBlog", routeValues: null, htmlAttributes: new { title = "Index" })
+        </li>
+        <li>
+            @Html.ActionLink("Create blog", "Create", "UserBlog", routeValues: null, htmlAttributes: new { title = "Create blog" })
+        </li>
+    </ul>
+   
+}
+

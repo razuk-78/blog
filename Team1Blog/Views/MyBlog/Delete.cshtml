@@ -1,0 +1,75 @@
+﻿@model Team1Blog.Models.Blog
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="form-horizontal">
+                    <div class="modal-header">
+                        <h3>Delete Blog :  @Model.Titel</h3>
+                    </div>
+                    @*<div class="modal-body">*@
+                       
+
+                    <form action="/myblog/delete" method="post" class="modal-body">
+
+
+
+
+
+                        <div class="col-md-2">
+                            <input type="hidden"name="Id"value="@Model.Id" />
+                            <input type="hidden" value="@Model.AuthorId" name="AuthorId" />
+                            <h4>Title</h4>
+                        </div>
+                        <div class="col-md-10">
+                            <h4>@Model.Titel</h4>
+                        </div>
+
+
+
+                        <div class="col-md-2"><h4>Body</h4></div>
+                        <div class="col-md-10">
+                            <h4>@Model.Body</h4>
+
+
+                        </div>
+
+
+
+                        <div class=" col-md-2">
+                            <h4>Created</h4>
+                        </div>
+                        <div class="col-md-10">
+                            <h4>@Model.Created</h4>
+                         </div>
+
+
+
+                        <div class="form-group">
+
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Delete" class="btn btn-success" />
+                            </div>
+                        </div>
+
+
+
+
+                    </form>
+                    @*</div>*@
+                    <div class="modal-footer">
+                        <a href="/myblog/Index/@Model.Id" class="btn btn-primary pull-left">Back to MyBlogs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<script src="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.min.js"></script>*@
+<link href="~/Content/bootstrap-tagsinput.css" rel="stylesheet" />
+@section Scripts {
+    <script src="~/Scripts/bootstrap-tagsinput.js"></script>
+}
